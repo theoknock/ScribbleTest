@@ -14,7 +14,6 @@
 @implementation ViewController
 
 static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recognizedText) {
-    NSLog(@"Text\t\t%@", recognizedText);
     __block NSMutableString *validatedText = [NSMutableString stringWithString:recognizedText];
     NSDictionary <NSString *, NSString *> * alphaNumericMap =
     @{
