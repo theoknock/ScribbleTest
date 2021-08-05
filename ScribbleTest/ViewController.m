@@ -37,9 +37,9 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
     [[alphaNumericMap allKeys] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([validatedText replaceOccurrencesOfString:key withString:[alphaNumericMap valueForKey:key] options:NSLiteralSearch range:stringReplacementRange] > 0)
         {
-            NSLog(@"%@:\t\tSubstituting %@ for %@", validatedText, [alphaNumericMap valueForKey:key], key);
+            NSLog(@"Substituting %@ for %@", [alphaNumericMap valueForKey:key], key);
         } else {
-            NSLog(@"Validated %@ as %@ (no occurrences of %@)", validatedText, [alphaNumericMap valueForKey:key], key);
+            NSLog(@"No occurrence of %@", key);
         }
     }];
     
@@ -107,9 +107,9 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
     //    NSLog(@"%s", __PRETTY_FUNCTION__);
     if (canvasView.drawing.strokes.count != 0)
     {
-        UIImage * drawingImage = (UIImage *)[canvasView.drawing imageFromRect:canvasView.bounds scale:0.33];
-        CGImageRef drawingCGImage = drawingImage.CGImage;
         @try {
+            UIImage * drawingImage = (UIImage *)[canvasView.drawing imageFromRect:canvasView.bounds scale:0.33];
+            CGImageRef drawingCGImage = drawingImage.CGImage;
             __autoreleasing NSError * error = nil;
             VNImageRequestHandler * imageRequestHandler =
             [[VNImageRequestHandler alloc] initWithCGImage:drawingCGImage orientation:kCGImagePropertyOrientationUp options:@{}];
@@ -120,7 +120,6 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
             NSLog(@"Error performing requests:\n\n%@", exception.debugDescription);
         } @finally {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.drawingImageView setImage:drawingImage];
                 [canvasView setDrawing:[PKDrawing new]];
             });
         }

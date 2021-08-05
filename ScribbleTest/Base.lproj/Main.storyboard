@@ -16,26 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6u8-3L-fdf">
-                                <rect key="frame" x="207" y="655" width="207" height="207"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" secondItem="6u8-3L-fdf" secondAttribute="width" id="YR0-Ev-se6"/>
-                                    <constraint firstAttribute="width" secondItem="6u8-3L-fdf" secondAttribute="height" id="eGi-za-Xdj"/>
-                                </constraints>
-                                <variation key="heightClass=compact-widthClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="YR0-Ev-se6"/>
-                                        <include reference="eGi-za-Xdj"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="YR0-Ev-se6"/>
-                                        <exclude reference="eGi-za-Xdj"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvU-qQ-eRl" customClass="CanvasView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="414"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,16 +52,10 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="width" id="5EQ-8G-NRI"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="BCa-S1-Orv"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" id="LjE-r3-Gk9"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rsu-Zh-3oC"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aw1-Bt-0NC"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eKi-CK-pfQ"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="f09-ih-Okp"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="j1U-0x-2Gz"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="nYV-vZ-5We"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="width" id="nwb-tc-Svu"/>
-                            <constraint firstItem="6u8-3L-fdf" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" id="oDE-eP-evZ"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="s8e-aT-M43"/>
                         </constraints>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -90,10 +64,6 @@
                                 <exclude reference="LjE-r3-Gk9"/>
                                 <exclude reference="j1U-0x-2Gz"/>
                                 <include reference="s8e-aT-M43"/>
-                                <include reference="BCa-S1-Orv"/>
-                                <exclude reference="nYV-vZ-5We"/>
-                                <include reference="nwb-tc-Svu"/>
-                                <exclude reference="oDE-eP-evZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -102,16 +72,11 @@
                                 <include reference="LjE-r3-Gk9"/>
                                 <include reference="j1U-0x-2Gz"/>
                                 <exclude reference="s8e-aT-M43"/>
-                                <exclude reference="BCa-S1-Orv"/>
-                                <include reference="nYV-vZ-5We"/>
-                                <exclude reference="nwb-tc-Svu"/>
-                                <include reference="oDE-eP-evZ"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="HvU-qQ-eRl" id="7FB-su-E6y"/>
-                        <outlet property="drawingImageView" destination="6u8-3L-fdf" id="GnP-aC-oEG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
