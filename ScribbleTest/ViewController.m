@@ -61,6 +61,31 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
     }
 };
 
+static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSString * numberString)
+{
+    __block NSMutableString *imageName = [NSMutableString stringWithString:numberString];
+    NSDictionary <NSString *, NSString *> * numericImageMap =
+    @{
+        @"0": @"0.circle",
+        @"1": @"1.circle",
+        @"2": @"2.circle",
+        @"3": @"3.circle",
+        @"4": @"4.circle",
+        @"5": @"5.circle",
+        @"6": @"6.circle",
+        @"7": @"7.circle",
+        @"8": @"8.circle",
+        @"9": @"9.circle"
+    };
+    NSRange stringReplacementRange = NSMakeRange(0, 1);
+    [[numericImageMap allKeys] enumerateObjectsUsingBlock:^(NSString * _Nonnull numberString, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([imageName replaceOccurrencesOfString:numberString withString:[numericImageMap valueForKey:numberString] options:NSLiteralSearch range:stringReplacementRange] > 0)
+            *stop = TRUE;
+    }];
+    
+    return (NSString *)imageName;
+};
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -80,12 +105,14 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
                 // To-Do: If the validator returns nil (i.e., it didn't recognize a number,
                 // pick the number from the list of top candidates with the highest confidence score
                 //
+                
                 NSArray<VNRecognizedText *> * topCandidates = [[request.results firstObject] topCandidates:10];
                 for (VNRecognizedText * recognizedText in topCandidates)
                 {
                     NSString * validatedText = validateRecognizedText([recognizedText string]);
+                    
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [numberImageView setImage:[UIImage systemImageNamed:@"0.circle"]];
+                        [numberImageView setImage:[UIImage systemImageNamed:imageNameForNumberString(validatedText)]];
                         [numberImageView setHidden:FALSE];
                     });
                     if ([validatedText rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].length != 0)
