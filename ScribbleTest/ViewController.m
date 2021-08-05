@@ -14,38 +14,51 @@
 @implementation ViewController
 
 static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recognizedText) {
-    __block NSMutableString *validatedText = [NSMutableString stringWithString:recognizedText];
-    NSDictionary <NSString *, NSString *> * alphaNumericMap =
-    @{
-        @"s": @"5",
-        @"S": @"5",
-        @"o": @"0",
-        @"Q": @"0",
-        @"O": @"0",
-        @"i": @"1",
-        @"I": @"1",
-        @"l": @"1",
-        @"B": @"8",
-        @"b": @"6",
-        @"q": @"9",
-        @"T": @"1",
-        @"C": @"8",
-        @"e": @"8",
-        @"W": @"8"
-    };
-    NSRange stringReplacementRange = NSMakeRange(0, 1);
-    [[alphaNumericMap allKeys] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([validatedText replaceOccurrencesOfString:key withString:[alphaNumericMap valueForKey:key] options:NSLiteralSearch range:stringReplacementRange] > 0)
-        {
-            NSLog(@"Substituting %@ for %@", [alphaNumericMap valueForKey:key], key);
-        } else {
-            NSLog(@"No occurrence of %@", key);
-        }
-    }];
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *myNumber = [f numberFromString:recognizedText];
     
-    NSLog(@"Validated text\t\t%@", validatedText);
-    
-    return validatedText;
+    if (!myNumber)
+    {
+        __block NSMutableString *validatedText = [NSMutableString stringWithString:recognizedText];
+        NSDictionary <NSString *, NSString *> * alphaNumericMap =
+        @{
+            @"s": @"5",
+            @"S": @"5",
+            @"o": @"0",
+            @"Q": @"0",
+            @"O": @"0",
+            @"i": @"1",
+            @"I": @"1",
+            @"l": @"1",
+            @"B": @"8",
+            @"b": @"6",
+            @"q": @"9",
+            @"T": @"1",
+            @"C": @"8",
+            @"e": @"8",
+            @"W": @"8",
+            @"(": @"6"
+        };
+        NSRange stringReplacementRange = NSMakeRange(0, 1);
+        [[alphaNumericMap allKeys] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([validatedText replaceOccurrencesOfString:key withString:[alphaNumericMap valueForKey:key] options:NSLiteralSearch range:stringReplacementRange] > 0)
+            {
+                NSLog(@"Substituting %@ for %@", [alphaNumericMap valueForKey:key], key);
+                *stop = TRUE;
+            } else {
+                NSLog(@"No occurrence of %@", key);
+            }
+            
+            if (idx == ([alphaNumericMap count] - 1))
+                NSLog(@"%@ invalid", validatedText);
+        }];
+        
+        return validatedText;
+    } else {
+        NSLog(@"%@ valid\n", recognizedText);
+        return (NSMutableString *)recognizedText;
+    }
 };
 
 - (void)viewDidLoad {
