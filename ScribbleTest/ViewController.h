@@ -13,8 +13,9 @@
 @class CanvasView;
 
 @interface ViewController : UIViewController <PKCanvasViewDelegate>
-
+@property (weak, nonatomic) IBOutlet UIImageView *numberImageView;
 @property (weak, nonatomic) IBOutlet CanvasView *canvasView;
+
 @property (strong, nonatomic) VNRecognizeTextRequest * textRequest;
 @property (weak, nonatomic) IBOutlet UILabel *recognizedTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *validatedTextLabel;

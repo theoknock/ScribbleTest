@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19134"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvU-qQ-eRl" customClass="CanvasView">
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gej-SQ-MOb">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="412.5"/>
+                                <imageReference key="image" image="number" catalog="system"/>
+                            </imageView>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvU-qQ-eRl" customClass="CanvasView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="414"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="HvU-qQ-eRl" secondAttribute="width" id="7cH-Hb-J9f"/>
                                     <constraint firstAttribute="width" secondItem="HvU-qQ-eRl" secondAttribute="height" id="kjN-Qk-xTd"/>
@@ -51,12 +56,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gej-SQ-MOb" firstAttribute="width" secondItem="HvU-qQ-eRl" secondAttribute="width" id="39I-ns-quj"/>
+                            <constraint firstItem="Gej-SQ-MOb" firstAttribute="centerY" secondItem="HvU-qQ-eRl" secondAttribute="centerY" id="4dZ-jj-EHc"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="width" id="5EQ-8G-NRI"/>
+                            <constraint firstItem="Gej-SQ-MOb" firstAttribute="height" secondItem="HvU-qQ-eRl" secondAttribute="height" id="A2K-Pv-1zb"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" id="LjE-r3-Gk9"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rsu-Zh-3oC"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eKi-CK-pfQ"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="j1U-0x-2Gz"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="s8e-aT-M43"/>
+                            <constraint firstItem="Gej-SQ-MOb" firstAttribute="centerX" secondItem="HvU-qQ-eRl" secondAttribute="centerX" id="wRd-4T-79Y"/>
                         </constraints>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
@@ -77,6 +86,7 @@
                     </view>
                     <connections>
                         <outlet property="canvasView" destination="HvU-qQ-eRl" id="7FB-su-E6y"/>
+                        <outlet property="numberImageView" destination="Gej-SQ-MOb" id="qK6-uK-Pty"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,9 +95,7 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="number" catalog="system" width="128" height="124"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

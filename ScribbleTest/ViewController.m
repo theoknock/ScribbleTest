@@ -64,7 +64,7 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _textRequest = [[VNRecognizeTextRequest alloc] initWithCompletionHandler:^ (CALayer * canvasViewObservationBoundsLayer, UILabel * recognizedTextLabel, UILabel * validatedTextLabel) {
+    _textRequest = [[VNRecognizeTextRequest alloc] initWithCompletionHandler:^ (CALayer * canvasViewObservationBoundsLayer, UIImageView * numberImageView) {
         return ^(VNRequest * _Nonnull request, NSError * _Nullable error) {
             if (!error)
             {
@@ -85,14 +85,12 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
                 {
                     NSString * validatedText = validateRecognizedText([recognizedText string]);
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [recognizedTextLabel setText:[recognizedText string]];
-                        [validatedTextLabel setText:validatedText];
+                        [numberImageView setImage:[UIImage systemImageNamed:@"0.circle"]];
+                        [numberImageView setHidden:FALSE];
                     });
                     if ([validatedText rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].length != 0)
                     {
                         break;
-                    } else {
-                        [validatedTextLabel setText:@""];
                     }
                 }
             } else {
@@ -100,7 +98,7 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
             }
             ////                    NSLog(@"%@\t%f\t%@", [recognizedText string], [recognizedText confidence], (r.length == 0) ? @"ALPHA" : @"NUMERIC");
         };
-    }(self.canvasView.observationBoundsLayer, self.recognizedTextLabel, self.validatedTextLabel)];
+    }(self.canvasView.observationBoundsLayer, self.numberImageView)];
     //    [_textRequest setRecognitionLevel:VNRequestTextRecognitionLevelAccurate];
     //    CGRect normalizedBounds = CGRectMake(0.0, 0.0, 1.0, 1.0);
     //    [_textRequest setRegionOfInterest:normalizedBounds];
@@ -111,6 +109,9 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
 - (void)canvasViewDidBeginUsingTool:(PKCanvasView *)canvasView
 {
     //    NSLog(@"%s", __PRETTY_FUNCTION__);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.numberImageView setHidden:TRUE];
+    });
 }
 
 - (void)canvasViewDidEndUsingTool:(PKCanvasView *)canvasView
