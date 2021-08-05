@@ -6,9 +6,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@import Vision;
+#import <PencilKit/PencilKit.h>
 
-@interface ViewController : UIViewController
+#import "CanvasView.h"
+@class CanvasView;
 
+@interface ViewController : UIViewController <PKCanvasViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView * drawingImageView;
+@property (weak, nonatomic) IBOutlet CanvasView *canvasView;
+@property (strong, nonatomic) VNRecognizeTextRequest * textRequest;
+@property (weak, nonatomic) IBOutlet UILabel *recognizedTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *validatedTextLabel;
 
 @end
 
