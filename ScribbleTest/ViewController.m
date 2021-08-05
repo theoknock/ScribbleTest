@@ -51,7 +51,7 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
             }
             
             if (idx == ([alphaNumericMap count] - 1))
-                NSLog(@"%@ invalid", validatedText);
+                NSLog(@"%@ invalid\n", validatedText);
         }];
         
         return validatedText;
@@ -77,6 +77,9 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
                 //                    [canvasViewObservationBoundsLayer setBorderColor:[UIColor redColor].CGColor];
                 //                });
                 
+                // To-Do: If the validator returns nil (i.e., it didn't recognize a number,
+                // pick the number from the list of top candidates with the highest confidence score
+                //
                 NSArray<VNRecognizedText *> * topCandidates = [[request.results firstObject] topCandidates:10];
                 for (VNRecognizedText * recognizedText in topCandidates)
                 {
