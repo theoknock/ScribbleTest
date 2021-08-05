@@ -89,7 +89,7 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _textRequest = [[VNRecognizeTextRequest alloc] initWithCompletionHandler:^ (CALayer * canvasViewObservationBoundsLayer, UIImageView * numberImageView) {
+    _textRequest = [[VNRecognizeTextRequest alloc] initWithCompletionHandler:^ (CALayer * canvasViewObservationBoundsLayer, UILabel * topCandidatesLabel, UIImageView * numberImageView) {
         return ^(VNRequest * _Nonnull request, NSError * _Nullable error) {
             if (!error)
             {
@@ -107,11 +107,14 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
                 //
                 
                 NSArray<VNRecognizedText *> * topCandidates = [[request.results firstObject] topCandidates:10];
+                NSMutableString * topCandidatesText = [[NSMutableString alloc] init];
                 for (VNRecognizedText * recognizedText in topCandidates)
                 {
                     NSString * validatedText = validateRecognizedText([recognizedText string]);
-                    
+                    NSLog(@"Recognized text: %@", [recognizedText string]);
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        [topCandidatesText appendString:[NSString stringWithFormat:@" %@", [recognizedText string]]];
+                        [topCandidatesLabel setText:topCandidatesText];
                         [numberImageView setImage:[UIImage systemImageNamed:imageNameForNumberString(validatedText)]];
                         [numberImageView setHidden:FALSE];
                     });
@@ -125,7 +128,7 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
             }
             ////                    NSLog(@"%@\t%f\t%@", [recognizedText string], [recognizedText confidence], (r.length == 0) ? @"ALPHA" : @"NUMERIC");
         };
-    }(self.canvasView.observationBoundsLayer, self.numberImageView)];
+    }(self.canvasView.observationBoundsLayer, self.topCandidatesLabel, self.numberImageView)];
     //    [_textRequest setRecognitionLevel:VNRequestTextRecognitionLevelAccurate];
     //    CGRect normalizedBounds = CGRectMake(0.0, 0.0, 1.0, 1.0);
     //    [_textRequest setRegionOfInterest:normalizedBounds];
