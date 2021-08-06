@@ -38,7 +38,15 @@ static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recogniz
             @"C": @"8",
             @"e": @"8",
             @"W": @"8",
-            @"(": @"6"
+            @"(": @"6",
+            @"L": @"1",
+            @"a": @"9",
+            @"g": @"9",
+            @"N": @"9",
+            @"V": @"6",
+            @"Z": @"0"
+            
+            
         };
         NSRange stringReplacementRange = NSMakeRange(0, 1);
         [[alphaNumericMap allKeys] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -113,7 +121,7 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
                     NSString * validatedText = validateRecognizedText([recognizedText string]);
                     NSLog(@"Recognized text: %@", [recognizedText string]);
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [topCandidatesText appendString:[NSString stringWithFormat:@" %@", [recognizedText string]]];
+                        [topCandidatesText appendString:[NSString stringWithFormat:@" .. %@ .. ", [recognizedText string]]];
                         [topCandidatesLabel setText:topCandidatesText];
                         [numberImageView setImage:[UIImage systemImageNamed:imageNameForNumberString(validatedText)]];
                         [numberImageView setHidden:FALSE];

@@ -52,8 +52,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2Xu-5q-4D3"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-Zf-Zgc">
-                                <rect key="frame" x="0.0" y="466" width="414" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnY-Zf-Zgc">
+                                <rect key="frame" x="0.0" y="466" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -62,34 +62,44 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XnY-Zf-Zgc" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="1Bw-6h-Acx"/>
                             <constraint firstItem="XnY-Zf-Zgc" firstAttribute="centerX" secondItem="HvU-qQ-eRl" secondAttribute="centerX" id="36w-AX-9sg"/>
                             <constraint firstItem="Gej-SQ-MOb" firstAttribute="width" secondItem="HvU-qQ-eRl" secondAttribute="width" id="39I-ns-quj"/>
                             <constraint firstItem="Gej-SQ-MOb" firstAttribute="centerY" secondItem="HvU-qQ-eRl" secondAttribute="centerY" id="4dZ-jj-EHc"/>
-                            <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="width" id="5EQ-8G-NRI"/>
                             <constraint firstItem="Gej-SQ-MOb" firstAttribute="height" secondItem="HvU-qQ-eRl" secondAttribute="height" id="A2K-Pv-1zb"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" id="LjE-r3-Gk9"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rsu-Zh-3oC"/>
                             <constraint firstItem="XnY-Zf-Zgc" firstAttribute="top" secondItem="HvU-qQ-eRl" secondAttribute="bottom" constant="8" id="b6I-gw-5yV"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eKi-CK-pfQ"/>
+                            <constraint firstItem="HvU-qQ-eRl" firstAttribute="bottom" secondItem="XnY-Zf-Zgc" secondAttribute="top" id="fQH-oQ-syn"/>
                             <constraint firstItem="XnY-Zf-Zgc" firstAttribute="width" secondItem="HvU-qQ-eRl" secondAttribute="width" id="g3E-Su-o7e"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="j1U-0x-2Gz"/>
                             <constraint firstItem="HvU-qQ-eRl" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" id="s8e-aT-M43"/>
                             <constraint firstItem="Gej-SQ-MOb" firstAttribute="centerX" secondItem="HvU-qQ-eRl" secondAttribute="centerX" id="wRd-4T-79Y"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fQH-oQ-syn"/>
+                                <exclude reference="j1U-0x-2Gz"/>
+                                <exclude reference="s8e-aT-M43"/>
+                            </mask>
+                        </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="5EQ-8G-NRI"/>
                                 <exclude reference="LjE-r3-Gk9"/>
                                 <exclude reference="j1U-0x-2Gz"/>
-                                <include reference="s8e-aT-M43"/>
+                                <exclude reference="s8e-aT-M43"/>
+                                <include reference="1Bw-6h-Acx"/>
+                                <exclude reference="b6I-gw-5yV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <exclude reference="5EQ-8G-NRI"/>
                                 <include reference="LjE-r3-Gk9"/>
                                 <include reference="j1U-0x-2Gz"/>
                                 <exclude reference="s8e-aT-M43"/>
+                                <exclude reference="1Bw-6h-Acx"/>
+                                <include reference="b6I-gw-5yV"/>
                             </mask>
                         </variation>
                     </view>
