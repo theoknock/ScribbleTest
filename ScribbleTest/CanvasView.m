@@ -31,9 +31,7 @@
     //    NS_REFINED_FOR_SWIFT PKInkingTool * thickStrokeInkingTool = [[PKInkingTool alloc] initWithInkType:PKInkTypeMarker color:[UIColor whiteColor] width:6.0]; // [[PKInkingTool alloc] initWithInk:thickStrokeInk width:6.0];
     //
     //    [self setTool:thickStrokeInkingTool];
-    
-    self.observationBoundsLayer = [[CALayer alloc] init];
-    [self.layer addSublayer:self.observationBoundsLayer];
+
 }
 
 - (void)setBorderColor:(UIColor *)borderColor

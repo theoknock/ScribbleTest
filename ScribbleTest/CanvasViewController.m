@@ -1,17 +1,17 @@
 //
-//  ViewController.m
-//  ScribbleTest
+//  CanvasViewController.m
+//  CanvasViewController
 //
-//  Created by Xcode Developer on 7/25/21.
+//  Created by Xcode Developer on 8/6/21.
 //
 
-#import "ViewController.h"
+#import "CanvasViewController.h"
 
-@interface ViewController ()
+@interface CanvasViewController ()
 
 @end
 
-@implementation ViewController
+@implementation CanvasViewController
 
 static NSString * (^validateRecognizedText)(NSString *) = ^ (NSString * recognizedText) {
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];

@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *topCandidatesLabel;
 
 @property (strong, nonatomic) VNRecognizeTextRequest * textRequest;
-@property (weak, nonatomic) IBOutlet UILabel *recognizedTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *validatedTextLabel;
 
 @end
 

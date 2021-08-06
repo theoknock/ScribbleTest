@@ -16,8 +16,6 @@ IB_DESIGNABLE
 @property (nonatomic, copy) IBInspectable UIColor * borderColor;
 @property (nonatomic, assign) IBInspectable CGFloat borderWidth;
 
-@property (nonatomic, strong) CALayer *observationBoundsLayer;
-
 @property (nonatomic, weak, nullable) IBOutlet id<PKCanvasViewDelegate> delegate;
 
 @end

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9328B7526BDCBFC0098F7CB /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9328B7426BDCBFC0098F7CB /* CanvasViewController.m */; };
 		B933DBE526B09187009FE323 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = B933DBE426B09187009FE323 /* CanvasView.m */; };
 		B933DBEB26B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.m in Sources */ = {isa = PBXBuildFile; fileRef = B933DBEA26B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.m */; };
-		B93DEDE526BD828A00F9E5B0 /* CanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93DEDE426BD828A00F9E5B0 /* CanvasView.xib */; };
 		B9B06CDD26AE0CB4008A8176 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B06CDC26AE0CB4008A8176 /* AppDelegate.m */; };
 		B9B06CE026AE0CB4008A8176 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B06CDF26AE0CB4008A8176 /* SceneDelegate.m */; };
 		B9B06CE326AE0CB4008A8176 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B06CE226AE0CB4008A8176 /* ViewController.m */; };
@@ -20,13 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B9328B7326BDCBFC0098F7CB /* CanvasViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		B9328B7426BDCBFC0098F7CB /* CanvasViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 		B933DBE326B09187009FE323 /* CanvasView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		B933DBE426B09187009FE323 /* CanvasView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		B933DBE926B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+CharacterToNumberSubstitution.h"; sourceTree = "<group>"; };
 		B933DBEA26B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+CharacterToNumberSubstitution.m"; sourceTree = "<group>"; };
 		B93C04BD26AEE3E800D749A1 /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		B93C04BE26AEE3E800D749A1 /* VisionKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisionKit.framework; path = System/Library/Frameworks/VisionKit.framework; sourceTree = SDKROOT; };
-		B93DEDE426BD828A00F9E5B0 /* CanvasView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CanvasView.xib; sourceTree = "<group>"; };
 		B9B06CD826AE0CB4008A8176 /* ScribbleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScribbleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9B06CDB26AE0CB4008A8176 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9B06CDC26AE0CB4008A8176 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,7 +89,8 @@
 				B9B06CE126AE0CB4008A8176 /* ViewController.h */,
 				B9B06CE226AE0CB4008A8176 /* ViewController.m */,
 				B9B06CE426AE0CB4008A8176 /* Main.storyboard */,
-				B93DEDE426BD828A00F9E5B0 /* CanvasView.xib */,
+				B9328B7326BDCBFC0098F7CB /* CanvasViewController.h */,
+				B9328B7426BDCBFC0098F7CB /* CanvasViewController.m */,
 				B933DBE326B09187009FE323 /* CanvasView.h */,
 				B933DBE426B09187009FE323 /* CanvasView.m */,
 				B933DBE926B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.h */,
@@ -160,7 +162,6 @@
 			files = (
 				B9B06CEB26AE0CB6008A8176 /* LaunchScreen.storyboard in Resources */,
 				B9B06CE826AE0CB6008A8176 /* Assets.xcassets in Resources */,
-				B93DEDE526BD828A00F9E5B0 /* CanvasView.xib in Resources */,
 				B9B06CE626AE0CB4008A8176 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +176,7 @@
 				B933DBEB26B0DE33009FE323 /* NSString+CharacterToNumberSubstitution.m in Sources */,
 				B9B06CE326AE0CB4008A8176 /* ViewController.m in Sources */,
 				B9B06CDD26AE0CB4008A8176 /* AppDelegate.m in Sources */,
+				B9328B7526BDCBFC0098F7CB /* CanvasViewController.m in Sources */,
 				B933DBE526B09187009FE323 /* CanvasView.m in Sources */,
 				B9B06CEE26AE0CB6008A8176 /* main.m in Sources */,
 				B9B06CE026AE0CB4008A8176 /* SceneDelegate.m in Sources */,
