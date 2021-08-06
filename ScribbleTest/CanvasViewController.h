@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CanvasViewController : UIViewController <PKCanvasViewDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(CanvasView) NSArray * canvasViews;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray * imageViews;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *numberImageView;
 @property (weak, nonatomic) IBOutlet UILabel *topCandidatesLabel;
