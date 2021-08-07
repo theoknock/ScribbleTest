@@ -122,23 +122,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZVi-xP-pqm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="895.5"/>
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" id="43Z-Ws-RrR" userLabel="Stack View1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2b-r4-C8Y" userLabel="View1">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2b-r4-C8Y" userLabel="View1" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vDF-s4-Ujd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-Z6-q31" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-Z6-q31" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="iNz-aH-dw8"/>
+                                                            <outlet property="delegate" destination="E2b-r4-C8Y" id="85y-0d-P1P"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -153,18 +154,23 @@
                                                     <constraint firstItem="vDF-s4-Ujd" firstAttribute="leading" secondItem="E2b-r4-C8Y" secondAttribute="leading" id="p34-kB-Pwn"/>
                                                     <constraint firstItem="vDF-s4-Ujd" firstAttribute="top" secondItem="E2b-r4-C8Y" secondAttribute="top" id="vLE-Wp-QW0"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="7RV-Z6-q31" id="gnf-0k-2Cl"/>
+                                                    <outlet property="imageView" destination="vDF-s4-Ujd" id="ENN-xY-KA2"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzJ-Nj-3l9" userLabel="View2">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzJ-Nj-3l9" userLabel="View2" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mKa-Of-KPn">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6I-bt-vZV" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6I-bt-vZV" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="Egm-u4-gvw"/>
+                                                            <outlet property="delegate" destination="VzJ-Nj-3l9" id="dyn-DB-9gV"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -179,18 +185,23 @@
                                                     <constraint firstItem="mKa-Of-KPn" firstAttribute="top" secondItem="VzJ-Nj-3l9" secondAttribute="top" id="bTc-jX-iLT"/>
                                                     <constraint firstItem="mKa-Of-KPn" firstAttribute="leading" secondItem="VzJ-Nj-3l9" secondAttribute="leading" id="x8Q-FR-1zT"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="w6I-bt-vZV" id="at3-W0-VUp"/>
+                                                    <outlet property="imageView" destination="mKa-Of-KPn" id="3O3-wy-Jn2"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-33-rOu" userLabel="View3">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujh-33-rOu" userLabel="View3" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rXI-lJ-29F">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWn-47-mY9" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWn-47-mY9" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="0rY-0l-EK8"/>
+                                                            <outlet property="delegate" destination="ujh-33-rOu" id="G6F-3m-Ny1"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -205,6 +216,10 @@
                                                     <constraint firstItem="ZWn-47-mY9" firstAttribute="bottom" secondItem="ujh-33-rOu" secondAttribute="bottom" id="ui0-Yl-MYj"/>
                                                     <constraint firstItem="rXI-lJ-29F" firstAttribute="bottom" secondItem="ujh-33-rOu" secondAttribute="bottom" id="zHJ-7v-Vb2"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="ZWn-47-mY9" id="XwM-wh-mkn"/>
+                                                    <outlet property="imageView" destination="rXI-lJ-29F" id="IbC-5c-CxE"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="p1Z-8b-qk6"/>
@@ -219,20 +234,21 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" id="3G3-Da-BO3" userLabel="Stack View2">
-                                        <rect key="frame" x="0.0" y="298.5" width="414" height="298.5"/>
+                                        <rect key="frame" x="0.0" y="138" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVk-6s-w6m" userLabel="View1">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVk-6s-w6m" userLabel="View1" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mCI-Vz-cYp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S81-BP-iHr" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S81-BP-iHr" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="zdl-XG-QAT"/>
+                                                            <outlet property="delegate" destination="wVk-6s-w6m" id="pdq-kW-Gr3"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -247,18 +263,23 @@
                                                     <constraint firstItem="mCI-Vz-cYp" firstAttribute="top" secondItem="wVk-6s-w6m" secondAttribute="top" id="q19-qQ-R1z"/>
                                                     <constraint firstItem="S81-BP-iHr" firstAttribute="bottom" secondItem="wVk-6s-w6m" secondAttribute="bottom" id="ziY-lE-GGV"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="S81-BP-iHr" id="0Ko-3h-O2o"/>
+                                                    <outlet property="imageView" destination="mCI-Vz-cYp" id="0xc-t9-vBl"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbL-IJ-OOt" userLabel="View2">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbL-IJ-OOt" userLabel="View2" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Vs-d4-BYo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-hN-bXS" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nr-hN-bXS" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="7Ss-Hi-rJg"/>
+                                                            <outlet property="delegate" destination="mbL-IJ-OOt" id="tiS-m4-ntT"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -273,18 +294,23 @@
                                                     <constraint firstItem="4nr-hN-bXS" firstAttribute="bottom" secondItem="mbL-IJ-OOt" secondAttribute="bottom" id="oYp-r9-RRW"/>
                                                     <constraint firstItem="4nr-hN-bXS" firstAttribute="leading" secondItem="mbL-IJ-OOt" secondAttribute="leading" id="zIg-GM-j5i"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="4nr-hN-bXS" id="tpP-eI-9e7"/>
+                                                    <outlet property="imageView" destination="2Vs-d4-BYo" id="kYV-6j-4nG"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-w5-P2f" userLabel="View3">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2j-w5-P2f" userLabel="View3" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oNP-pZ-nSe">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-Eu-OnN" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-Eu-OnN" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="qv8-d7-lbi"/>
+                                                            <outlet property="delegate" destination="b2j-w5-P2f" id="Rk3-Ri-0Mf"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -299,9 +325,12 @@
                                                     <constraint firstItem="oNP-pZ-nSe" firstAttribute="bottom" secondItem="b2j-w5-P2f" secondAttribute="bottom" id="gOv-tb-toC"/>
                                                     <constraint firstItem="u6a-Eu-OnN" firstAttribute="bottom" secondItem="b2j-w5-P2f" secondAttribute="bottom" id="xaz-kf-RxR"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="u6a-Eu-OnN" id="kod-N7-3ag"/>
+                                                    <outlet property="imageView" destination="oNP-pZ-nSe" id="VoJ-JT-An8"/>
+                                                </connections>
                                             </view>
                                         </subviews>
-                                        <viewLayoutGuide key="safeArea" id="MVj-LO-A3i"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                         <constraints>
                                             <constraint firstItem="b2j-w5-P2f" firstAttribute="trailing" secondItem="3G3-Da-BO3" secondAttribute="trailing" id="A8M-2e-FrI"/>
@@ -313,19 +342,20 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="096-op-kOU" userLabel="Stack View3">
-                                        <rect key="frame" x="0.0" y="597" width="414" height="298"/>
+                                        <rect key="frame" x="0.0" y="276" width="414" height="138"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4I-ye-RDa" userLabel="View1">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4I-ye-RDa" userLabel="View1" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="llk-AJ-cz0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v49-Uf-OHS" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v49-Uf-OHS" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="8Sg-uz-duC"/>
+                                                            <outlet property="delegate" destination="u4I-ye-RDa" id="ZFJ-wp-Nrb"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -340,18 +370,23 @@
                                                     <constraint firstItem="v49-Uf-OHS" firstAttribute="top" secondItem="u4I-ye-RDa" secondAttribute="top" id="sB2-4r-ugx"/>
                                                     <constraint firstItem="llk-AJ-cz0" firstAttribute="bottom" secondItem="u4I-ye-RDa" secondAttribute="bottom" id="upZ-mO-T7I"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="v49-Uf-OHS" id="cjS-hb-0Lm"/>
+                                                    <outlet property="imageView" destination="llk-AJ-cz0" id="rZO-lQ-SaR"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA4-Ut-2YV" userLabel="View2">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA4-Ut-2YV" userLabel="View2" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rbE-Ob-0rc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-V0-mSk" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-V0-mSk" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="iyD-8S-HdB"/>
+                                                            <outlet property="delegate" destination="zA4-Ut-2YV" id="bxG-n1-X1T"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -366,18 +401,23 @@
                                                     <constraint firstItem="PsA-V0-mSk" firstAttribute="bottom" secondItem="zA4-Ut-2YV" secondAttribute="bottom" id="fC8-3R-GNp"/>
                                                     <constraint firstItem="rbE-Ob-0rc" firstAttribute="leading" secondItem="zA4-Ut-2YV" secondAttribute="leading" id="o3B-Sk-ew8"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="PsA-V0-mSk" id="eHi-uQ-hNU"/>
+                                                    <outlet property="imageView" destination="rbE-Ob-0rc" id="ZQW-7z-CYh"/>
+                                                </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsZ-lk-ZGl" userLabel="View3">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="298.5"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsZ-lk-ZGl" userLabel="View3" customClass="ConvolutionMatrixView">
+                                                <rect key="frame" x="276" y="0.0" width="138" height="138"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kid-YZ-uoT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="138" height="137"/>
+                                                        <imageReference key="image" image="number.circle" catalog="system"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73S-z6-jv0" customClass="CanvasView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="298.5"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73S-z6-jv0" customClass="CanvasView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="AX3-hJ-tbI" id="frV-4B-OLm"/>
+                                                            <outlet property="delegate" destination="XsZ-lk-ZGl" id="Ntz-rb-FKL"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -392,6 +432,10 @@
                                                     <constraint firstItem="Kid-YZ-uoT" firstAttribute="leading" secondItem="XsZ-lk-ZGl" secondAttribute="leading" id="jCe-E0-kgv"/>
                                                     <constraint firstItem="73S-z6-jv0" firstAttribute="leading" secondItem="XsZ-lk-ZGl" secondAttribute="leading" id="tVq-Az-gt4"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="canvasView" destination="73S-z6-jv0" id="hdb-pP-BUt"/>
+                                                    <outlet property="imageView" destination="Kid-YZ-uoT" id="q6M-ES-tfX"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
@@ -408,12 +452,13 @@
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Zf2-RA-w69"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="top" secondItem="u7s-3S-Efz" secondAttribute="top" id="3Eq-fa-PP1"/>
-                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="leading" secondItem="u7s-3S-Efz" secondAttribute="leading" id="J53-Uk-JdQ"/>
-                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="height" secondItem="u7s-3S-Efz" secondAttribute="height" id="ZEl-h6-IeO"/>
-                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="width" secondItem="u7s-3S-Efz" secondAttribute="width" id="tnG-rZ-33M"/>
+                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="width" secondItem="u7s-3S-Efz" secondAttribute="width" id="Mg4-5M-lAb"/>
+                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="centerX" secondItem="u7s-3S-Efz" secondAttribute="centerX" id="ho2-ee-APQ"/>
+                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="height" secondItem="u7s-3S-Efz" secondAttribute="width" id="jtn-RG-BcQ"/>
+                            <constraint firstItem="ZVi-xP-pqm" firstAttribute="centerY" secondItem="u7s-3S-Efz" secondAttribute="centerY" id="kM9-ew-Vkz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -439,11 +484,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bn-5m-iuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="487"/>
+            <point key="canvasLocation" x="-245" y="637"/>
         </scene>
     </scenes>
     <resources>
         <image name="number" catalog="system" width="128" height="124"/>
+        <image name="number.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
