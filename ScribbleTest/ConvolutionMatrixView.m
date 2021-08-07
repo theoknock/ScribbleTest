@@ -106,6 +106,10 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [imageView setImage:[UIImage systemImageNamed:imageNameForNumberString(validatedText)]];
                         [imageView setHidden:FALSE];
+                        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+                        f.numberStyle = NSNumberFormatterDecimalStyle;
+                        NSNumber *myNumber = [f numberFromString:validatedText];
+                        [self setElementValue:myNumber];
                     });
                     if ([validatedText rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].length != 0)
                     {
@@ -183,6 +187,8 @@ static NSString * (^imageNameForNumberString)(NSString *) = ^ NSString * (NSStri
     } else {
         _elementValue = [NSNumber numberWithUnsignedInt:1];
     }
+    
+    NSLog(@"Element value set to %@", _elementValue.stringValue);
     
 }
 

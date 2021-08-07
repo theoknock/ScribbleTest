@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) VNRecognizeTextRequest * textRequest;
 
-@property (assign, nonatomic, getter=elementValue, setter=setElementValue:) NSNumber * elementValue;
+@property (assign, nonatomic, getter=elementValue, setter=setElementValue:) __block NSNumber * elementValue;
 
 
 @end
